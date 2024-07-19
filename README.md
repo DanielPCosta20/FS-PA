@@ -46,3 +46,24 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
+```
+
+
+## Estado do Projeto 
+
+### Backend 
+
+Desenvolvido em Java Spring-boot 
+
+- Do the archicteture of the project 
+- Test locally all the webservice functions 
+- Do test in backend to run everytime we compile ( *TO DO* )
+
+
+
+
+### Frontend 
+
+Desenvolvido em Angular
+
+
