@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import Projeto_teste.demo.service.UserService;
@@ -20,38 +21,31 @@ public class UserControler {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/user")
+    @GetMapping("/")
     public List<User> getAllUsers(){
         System.out.println("GetAllUsers");
         return userService.getAllUsers();
     }
 
-    @GetMapping("/user/{userId}/get")
-    public User getUser(@PathVariable Long id){
+    @GetMapping("/{userId}/get")
+    public User getUser(@PathVariable("userId") Long id){
         System.out.println("getUser");
-        User user = userService.getUser(id);
-        
-
-        
-        return user;
+        return userService.getUser(id);
     }
 
-    @PostMapping("/")
-    public User saveUser(User user) {
-        System.out.println("saveUser");
+    @PostMapping("/save")
+    public User saveUser(@RequestBody User user) {
         return userService.saveUser(user);
     }
 
-    @DeleteMapping("/user/{userId}/delete")
-    public void deleteUser(@PathVariable Long id) {
-        System.out.println("deleteUser");
+    @DeleteMapping("/{userId}/delete")
+    public void deleteUser(@PathVariable("userId") Long id) {
         userService.deleteUser(id);
     }
 
-    @PutMapping("/user/{userId}/change")
-    public User ChangeUser(@PathVariable Long id, String mail, String name ){
-        System.out.println("ChangeUser");
-        return userService.ChangeUser(id, mail, name);
+    @PutMapping("/{userId}/change")
+    public User changeUser(@PathVariable("userId") Long id, @RequestBody User user) {
+        return userService.changeUser(id, user);
     }
 
 }
