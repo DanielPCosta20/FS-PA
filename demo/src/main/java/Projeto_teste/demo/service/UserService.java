@@ -30,10 +30,10 @@ public class UserService {
     
 
     public User saveUser(User user) {
-        if(user.getName()!= null && user.getEmail() != null){
+        //if(user.getName()!= null && user.getEmail() != null){
             return userRepository.save(user);
-        }
-        else{ throw new UserInvalidArguments();}
+        /* }
+        else{ throw new UserInvalidArguments();}*/
     }
 
     public void deleteUser(Long id) {

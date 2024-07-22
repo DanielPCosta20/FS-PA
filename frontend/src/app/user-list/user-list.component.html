@@ -10,7 +10,7 @@
         <tbody>
           <tr *ngFor="let user of users">
             <td>{{ user.id }}</td>
-            <td>{{ user.nome }}</td>
+            <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
           </tr>
         </tbody>
@@ -21,7 +21,7 @@
     <button (click)="getUserById()">Get User</button>
     <div *ngIf="selectedUser">
         <p>Id: {{ selectedUser.id }}</p>
-        <p>Name: {{ selectedUser.nome }}</p>
+        <p>Name: {{ selectedUser.name }}</p>
         <p>Email: {{ selectedUser.email }}</p>
     </div>
   
@@ -30,14 +30,13 @@
     <button (click)="deleteUserById()">Delete User</button>
   
     <h3>Add User</h3>
-    <input type="number" [(ngModel)]="newUser.id" placeholder="ID">
-    <input type="text" [(ngModel)]="newUser.nome" placeholder="Name">
+    <input type="text" [(ngModel)]="newUser.name" placeholder="Name">
     <input type="email" [(ngModel)]="newUser.email" placeholder="Email">
     <button (click)="addUser()">Add User</button>
   
     <h3>Update User</h3>
     <input type="number" [(ngModel)]="updateUser.id" placeholder="ID">
-    <input type="text" [(ngModel)]="updateUser.nome" placeholder="Name">
+    <input type="text" [(ngModel)]="updateUser.name" placeholder="Name">
     <input type="email" [(ngModel)]="updateUser.email" placeholder="Email">
     <button (click)="updateUserById()">Update User</button>
 </div>

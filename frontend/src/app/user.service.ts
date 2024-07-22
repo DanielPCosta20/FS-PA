@@ -6,7 +6,7 @@ import { environment } from 'src/environment/environment';
 
 export interface User {
   id: number;
-  nome: string;
+  name: string;
   email: string;
 }
 
@@ -20,9 +20,17 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  getHome() {
+    const url = this.apiUrl + "home";
+    return this.http.get<any>(url);
+  }
+
   getAllUsers() {
     console.log(this.apiUrl);
-    return this.http.get<any[]>(`${this.apiUrl}home`);
+    const url = this.apiUrl + "users";
+    console.log(url);
+    //return this.http.get<any[]>(`${this.apiUrl}home`);
+    return this.http.get<any>(url);
   }
 
   getUserById(id: number) {

@@ -1,5 +1,4 @@
-// src/main/java/com/example/demo/WebConfig.java
-package com.example.demo;
+/*package Projeto_teste.demo.controler;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,4 +21,4 @@ public class WebConfig {
             }
         };
     }
-}
+}*/

@@ -9,10 +9,10 @@ import { UserService, User } from '../user.service';
 })
 export class UserListComponent implements OnInit {
 
-  users: User[] = [];
+  users: any[] = [];
   selectedUser: User | undefined;
-  newUser: User = { id: 0, nome: '', email: '' };
-  updateUser: User = { id: 0, nome: '', email: '' };
+  newUser: User = { id: 0, name: '', email: '' };
+  updateUser: User = { id: 0, name: '', email: '' };
   getId: number = 0;
 
   constructor(private userService: UserService) { }
@@ -44,14 +44,14 @@ export class UserListComponent implements OnInit {
 
   addUser() {
     this.userService.addUser(this.newUser).subscribe(() => {
-      this.newUser = { id: 0, nome: '', email: '' };
+      this.newUser = { id: 0, name: '', email: '' };
       this.refreshUsers();
     });
   }
 
   updateUserById() {
     this.userService.updateUser(this.updateUser.id, this.updateUser).subscribe(() => {
-      this.updateUser = { id: 0, nome: '', email: '' };
+      this.updateUser = { id: 0, name: '', email: '' };
       this.refreshUsers();
     });
   }
