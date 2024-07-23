@@ -46,6 +46,10 @@ public class User {
 
     public void setEmail(String email){
          this._email = email;
+    }
+
+    public Integer getID() {
+        return this._id;
     }   
 
 }
