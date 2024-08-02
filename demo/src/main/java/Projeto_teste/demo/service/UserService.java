@@ -14,11 +14,11 @@ import java.util.List;
 
 
 
-@Service
+//@Service
 public class UserService {
 
-    @Autowired
-    UserRepository userRepository;
+    /*@Autowired
+    UserRepository;
 
     public List<User> getAllUsers(){
         return userRepository.findAll().stream().toList();
@@ -34,9 +34,9 @@ public class UserService {
             return userRepository.save(user);
         /* }
         else{ throw new UserInvalidArguments();}*/
-    }
 
-    public void deleteUser(Long id) {
+
+    /*public void deleteUser(Long id) {
         if (!userRepository.existsById(id)) {
             throw new UserNotFoundException(id);
         }
@@ -61,6 +61,6 @@ public class UserService {
 
         userRepository.save(existingUser);
         return existingUser;
-    }
+    }*/
     
 }

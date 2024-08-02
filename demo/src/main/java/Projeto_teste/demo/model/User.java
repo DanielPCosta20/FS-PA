@@ -1,55 +1,75 @@
 package Projeto_teste.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import jakarta.persistence.Entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
+import java.util.List;
+
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@JsonPropertyOrder({"id", "name", "email"}) 
-public class User {
+@Table(name = "user")
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("id")
-    private Integer _id;
+    private Integer id;
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String password;
 
-    @JsonProperty("name")
-    private String _name;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-    @JsonProperty("email")
-    private String _email;
-
-    public User(){
-
+    @Override
+    public String getPassword() {
+        return password;
     }
 
-    public User(String name, String email){
-        this._name = name;
-        this._email = email;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
-    public String getName(){
-        return this._name;
+    @Override
+    public String getUsername() {
+        return email;
     }
 
-    public void setName(String name){
-         this._name = name;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
-    public String getEmail(){
-        return this._email;
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
     }
 
-    public void setEmail(String email){
-         this._email = email;
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
     }
 
-    public Integer getID() {
-        return this._id;
-    }   
-
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

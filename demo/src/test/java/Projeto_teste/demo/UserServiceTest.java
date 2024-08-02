@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
     
-    @Mock
+    /*@Mock
     private UserRepository userRepository;
 
     @InjectMocks
@@ -42,5 +42,5 @@ public class UserServiceTest {
         assertThat(savedUser.getEmail()).isEqualTo("email");
 
         verify(userRepository, times(1)).save(user);
-    }
+    }*/
 }

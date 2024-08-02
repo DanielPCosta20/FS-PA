@@ -21,7 +21,7 @@ import Projeto_teste.demo.model.User;
 @RequestMapping("/api/")
 public class UserControler {
     
-    @Autowired
+    /*@Autowired
     private UserService userService;
 
 
@@ -67,6 +67,6 @@ public class UserControler {
     )
     public User changeUser(@PathVariable("userId") Long id, @RequestBody User user) {
         return userService.changeUser(id, user);
-    }
+    }*/
 
 }
